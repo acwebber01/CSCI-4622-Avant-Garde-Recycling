@@ -9,13 +9,19 @@ import matplotlib.image as mpimg
 
 directory = os.fsencode('dataset-resized/cardboard')
 
+#dataframe with each image's category, image file, and filename. May or may not actually get used
 image_frame = pd.DataFrame(columns=('category', 'image', 'filename'))
+
+#a big array of filenames
 filename_array = []
+#a big array of images (our "X")
 image_array = []
+#a big array of categories (our "y")
 category_array = []
 
 i = 0
 
+#we basically just run the for loop below six times, once for each category, filling out the arrays and dataframe.
 category = 'cardboard'
 
 for filename in os.listdir('dataset-resized/' + category):
@@ -84,8 +90,8 @@ for filename in os.listdir('dataset-resized/' + category):
     filename_array.append(filename)
     i += 1
 
-
+#test display
 print(image_frame.head(5))
-print(filename_array[999])
-plt.imshow(image_array[999])
+print(filename_array[1392])
+plt.imshow(image_array[1392])
 plt.show()
